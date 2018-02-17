@@ -24,8 +24,7 @@ $(document).ready(function computerChoice() {
         console.log("The computer chose: " + computerLetter);
 
 
-    //need to add the uppercase conversion to lowercase!! and to only allow for letter entries!!!
-  document.onkeyup = function(event) {
+    document.onkeyup = function(event) {
 
     var userGuess = event.key;
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
