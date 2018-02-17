@@ -1,0 +1,20 @@
+  h2 {
+    text-align: center;
+    color: white;
+    background-color: white;
+  }
+
+  .card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  }
+
+  #blackcard  {
+  border: solid 3px;
+  border-color: white;
+  }
+
+  #game {
+  margin-left: 50px;
+  margin-bottom: 20px;
+  }
