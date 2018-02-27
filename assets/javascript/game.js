@@ -26,27 +26,36 @@ $(document).ready(function computerChoice() {
 
     document.onkeyup = function(event) {
 
-    var userGuess = event.key;
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
+      var userGuess = event.key;
+      var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
 
       //Loop for guessing cycle)
-      if (userGuess === computerLetter) {
-        wins++;
-        guessesLeft = 9;
-        computerChoice();
-        guessList[guessList.length]=userGuess;
-        guessList = [];
+      //(!/^[a-zA-Z]+$/.test(userGuess)
+      if (alphabet.indexOf(userGuess)=== -1) {
+        alert("please enter a letter!");
+      }
+      else if (guessList.indexOf(userGuess)!== -1) {
+        alert("you already guessed this!")
+      } 
+      else {
+        if (userGuess === computerLetter) {
+          wins++;
+          guessesLeft = 9;
+          computerChoice();
+          guessList[guessList.length]=userGuess;
+          guessList = [];
         } 
-      else if (guessesLeft > 1) {
-        guessesLeft--;
-        guessList[guessList.length]=userGuess;
+        else if (guessesLeft > 1) {
+          guessesLeft--;
+          guessList[guessList.length]=userGuess;
         }
-      else if (guessesLeft <= 1) {
-        losses++;
-        guessesLeft = 9;
-        computerChoice();
-        guessList = [];
+        else if (guessesLeft <= 1) {
+          losses++;
+          guessesLeft = 9;
+          computerChoice();
+          guessList = [];
         }
+      }
 
      var html =
           "<p>You chose: " + guessList + "</p>" +
@@ -57,6 +66,6 @@ $(document).ready(function computerChoice() {
         // Set the inner HTML contents of the #game div to our html string
         document.querySelector("#game").innerHTML = html;
 
-  }
+    }
 
 })
